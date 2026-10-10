@@ -1,0 +1,54 @@
+{
+  "description": "Synthetic employees for the internal assistant. The application assigns the role. Chat messages cannot change it.",
+  "roles": [
+    {
+      "id": "junior",
+      "label": "Intern / junior",
+      "can_read": ["junior"]
+    },
+    {
+      "id": "senior",
+      "label": "Senior",
+      "can_read": ["junior", "senior"]
+    },
+    {
+      "id": "management",
+      "label": "Admin / management",
+      "can_read": ["junior", "senior", "management"]
+    }
+  ],
+  "employees": [
+    {
+      "id": "E-014",
+      "name": "Jamie Ortiz",
+      "title": "Engineering intern",
+      "department": "Engineering",
+      "role": "junior",
+      "can_read": ["junior"]
+    },
+    {
+      "id": "E-102",
+      "name": "Riley Chen",
+      "title": "Engineer",
+      "department": "Engineering",
+      "role": "junior",
+      "can_read": ["junior"]
+    },
+    {
+      "id": "E-240",
+      "name": "Morgan Patel",
+      "title": "Engineering lead",
+      "department": "Engineering",
+      "role": "senior",
+      "can_read": ["junior", "senior"]
+    },
+    {
+      "id": "E-001",
+      "name": "Alex Kim",
+      "title": "HR director",
+      "department": "People",
+      "role": "management",
+      "can_read": ["junior", "senior", "management"]
+    }
+  ]
+}

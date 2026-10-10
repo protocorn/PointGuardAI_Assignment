@@ -22,28 +22,27 @@ class Session:
 
 
 def list_documents(session: Session, documents: dict[str, Document], arguments: dict) -> dict:
-    """Lists all the available documents"""
-    #query = str(arguments.get("query") or "").casefold()
-    visible = []
+    listed = []
     for document in documents.values():
-        # CHECK LATER: clearance check is not needed for now
-        #if document.clearance not in session.employee.can_read:
-        #    continue
-
-        # CHECK LATER: search query is not needed for now
-        """haystack = f"{document.title}\n{document.summary}".casefold()
-        if query and query not in haystack:
-            continue"""
-
-        visible.append(
-            {
-                "id": document.id,
-                "title": document.title,
-                "clearance": document.clearance,
-                "summary": document.summary,
-            }
-        )
-    return {"status": "ok", "documents": visible}
+        if document.clearance in session.employee.can_read:
+            listed.append(
+                {
+                    "id": document.id,
+                    "title": document.title,
+                    "clearance": document.clearance,
+                    "summary": document.summary,
+                }
+            )
+        else:
+            listed.append(
+                {
+                    "id": document.id,
+                    "title": "[masked]",
+                    "clearance": document.clearance,
+                    "summary": "[masked]",
+                }
+            )
+    return {"status": "ok", "documents": listed}
 
 
 def read_document(session: Session, documents: dict[str, Document], arguments: dict) -> dict:

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from assistant.catalog import Employee, load_documents, load_employees
-from assistant.chat import initial_messages, run_turn
+from assistant.chat import initial_messages, run_turn, print_turn
 from assistant.tools import Session
 
 
@@ -33,7 +33,7 @@ def main() -> None:
             session, messages = _start(employee)
             continue
         try:
-            run_turn(messages, session, documents, user_text)
+            print_turn(run_turn(messages, session, documents, user_text))
         except Exception as exc:
             print(f"Request failed: {exc}")
 

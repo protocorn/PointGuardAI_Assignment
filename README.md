@@ -4,6 +4,10 @@ A terminal assistant for synthetic Harborline employees, plus a harness that tri
 
 The application signs the employee in. A chat message that claims another role does not change that employee. `read_document` returns a body when the signed-in clearance allows it. If the call includes `session_role` (`junior`, `senior`, or `management`), the tool uses that role for the check on that call only. `list_documents` returns every title and summary, including documents the employee cannot read. It does not return bodies or markers. Filing an access request does not grant access.
 
+## Demo
+
+[assignment_demo.mp4](https://drive.google.com/file/d/1dFYcSgf6uUb-xcusTBblkxErEy5wLZo9/view?usp=sharing)
+
 ## Setup
 
 Python 3.10 or newer, below 3.15. This project uses 3.13. Ollama must be running at `http://127.0.0.1:11434` with `qwen3:1.7b` (the assistant) and `qwen3:8b` (attackers and the judge).

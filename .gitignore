@@ -6,3 +6,4 @@ __pycache__/
 *.db
 .pytest_cache/
 .mypy_cache/
+demo/*.mp4
